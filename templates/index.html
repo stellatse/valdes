@@ -9,7 +9,7 @@ $var title: Express Today!
       <div class="container">
         <div class="carousel-caption">
           <h1>我真的很快</h1>
-          <p class="lead">只送当天件！只限上海外环内！12小时内必到！立刻下订单！半小时内上门取件！</p>
+          <p class="lead">只送当天件 只限上海外环内 12小时内必到 立刻下订单 2小时内上门取件！</p>
           <a class="btn btn-large btn-primary" role="button" href="#signup" data-toggle="modal">现在就加入</a>
         </div>
       </div>
@@ -45,37 +45,40 @@ $var title: Express Today!
     <h3 id="myModalLabel">一分钟注册</h3>
   </div>
   <div class="modal-body">
-        <form id="signup" class="form-horizontal" action="/signup" method="POST">
-    <div class="control-group">
-        <label class="control-label" for="inputEmail">手机号码</label>
-        <div class="controls">
-          <input type="text" id="inputPhone" placeholder="Mobile">
+        <form id="register" class="form-horizontal" action="/signup" method="POST">
+        <div class="control-group">
+        	<label class="control-label" for="inputEmail">Email</label>
+            <div class="controls">
+    		<input type="text" id="email" class="input-block-level" placeholder="Email address">
+            </div>
         </div>
-    </div>
-    <div class="control-group">
-        <label class="control-label" for="inputEmail">电子邮箱</label>
-        <div class="controls">
-          <input type="text" id="inputEmail" placeholder="Email">
+        <div class="control-group">
+        	<label class="control-label" for="inputPhone">手机</label>
+            <div class="controls">
+    		<input type="text" id="phone" class="input-block-level" placeholder="手机">
+            </div>
         </div>
-    </div>
-    <div class="control-group">
-        <label class="control-label" for="inputPassword">密码</label>
-        <div class="controls">
-          <input type="password" id="inputPassword" placeholder="Password">
+        <div class="control-group">
+        	<label class="control-label" for="inputPassword">密码</label>
+            <div class="controls">
+    		<input type="text" id="password" class="input-block-level" placeholder="Password">
+            </div>
         </div>
-    </div>
-    <div class="control-group">
-        <label class="control-label" for="inputPassword">确认密码</label>
-        <div class="controls">
-          <input type="password" id="inputPassword2" placeholder="Password">
+        <div class="control-group">
+        	<label class="control-label" for="inputPassword">确认密码</label>
+            <div class="controls">
+    		<input type="text" id="password_again" class="input-block-level" placeholder="Password Again">
+            </div>
         </div>
-    </div>
-    
+        <div class="control-group">
+        	<div class="controls">
+        	<button type="submit" class="btn btn-primary">注册</button>
+            </div>
+        </div>
+        </form>
   </div>
-  <div class="modal-footer">
-    <button type="submit" class="btn btn-primary">注册</button>
-  </div>
-  </form>
+
+  
 </div>
 
 <!-- Marketing messaging and featurettes
