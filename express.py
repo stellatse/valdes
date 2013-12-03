@@ -16,6 +16,20 @@ urls = (
 	'/mioder', 'myorder',
 	'/user/(\d+)', 'account'
 )
+def load_sqla(handler):
+	web.ctx.orm = scoped_session(sessionmaker(bind=engine))
+	try:
+		return handler()
+	except web.HTTPError:
+		web.ctx.orm.commit()
+		raise
+	except:
+		web.ctx.orm.rollback()
+		raise
+	finally:
+		web.ctx.orm.commit()
+app = web.application(urls, globals())
+app.add_processor(load_sqla)
 
 class index:
 	def GET(self):
@@ -29,33 +43,20 @@ class signup:
 	def POST(self):
 		try:
 			i = web.input()
-			user_id = model.User().new(i.phone, i.email, i.password)
+			u = User(name='', fullname='', password=i.password, email=i.email, phone=i.phone, address='', section=0)
+			web.ctx.orm.add(u)
 		except Exception, e:
 			return json.dumps(["reg_error"])
 		else:
-			if user_id:
-				web.setcookie('user_id', str(user_id), settings.COOKIE_EXPIRES)
-				raise web.seeother('/user/%d' % user_id)
+			if u.id:
+				web.setcookie('uid', str(u.id), settings.COOKIE_EXPIRES)
+				raise web.seeother('/user/%d' % u.id)
 	
 class login:
 	def GET(self):
 		return render.login()
 
 
-def load_sqla(handler):
-	web.ctx.orm = scoped_session(sessionmaker(bind=engine))
-	try:
-		return handler()
-	except web.HTTPError:
-		web.ctx.orm.commit()
-		raise
-	except:
-		web.ctx.orm.rollback()
-		raise
-	finally:
-		web.ctx.orm.commit()
 		
 if __name__ == "__main__":
-	app = web.application(urls, globals())
-	app.add_processor(load_sqla)
 	app.run()
