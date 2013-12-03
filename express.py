@@ -3,7 +3,7 @@
 import web
 import json
 from sqlalchemy.orm import scoped_session, sessionmaker
-from models import *
+from model import *
 render = web.template.render('templates/', base='layout')
 render_plain = web.template.render('templates/')
 urls = (
@@ -43,6 +43,9 @@ class signup:
 	def POST(self):
 		try:
 			i = web.input()
+                        data = web.data()
+                        print i
+                        print data
 			u = User(name='', fullname='', password=i.password, email=i.email, phone=i.phone, address='', section=0)
 			web.ctx.orm.add(u)
 		except Exception, e:
