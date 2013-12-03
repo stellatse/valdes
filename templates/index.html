@@ -10,7 +10,7 @@ $var title: Express Today!
         <div class="carousel-caption">
           <h1>我真的很快</h1>
           <p class="lead">只送当天件！只限上海外环内！12小时内必到！立刻下订单！半小时内上门取件！</p>
-          <a class="btn btn-large btn-primary" href="/signup">现在就加入</a>
+          <a class="btn btn-large btn-primary" role="button" href="#signup" data-toggle="modal">现在就加入</a>
         </div>
       </div>
     </div>
@@ -39,7 +39,43 @@ $var title: Express Today!
   <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
 </div><!-- /.carousel -->
 
-
+<div id="signup" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">一分钟注册</h3>
+  </div>
+  <div class="modal-body">
+        <form id="signup" class="form-horizontal" action="/signup" method="POST">
+    <div class="control-group">
+        <label class="control-label" for="inputEmail">手机号码</label>
+        <div class="controls">
+          <input type="text" id="inputPhone" placeholder="Mobile">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="inputEmail">电子邮箱</label>
+        <div class="controls">
+          <input type="text" id="inputEmail" placeholder="Email">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="inputPassword">密码</label>
+        <div class="controls">
+          <input type="password" id="inputPassword" placeholder="Password">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="inputPassword">确认密码</label>
+        <div class="controls">
+          <input type="password" id="inputPassword2" placeholder="Password">
+        </div>
+    </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-primary">注册</button>
+  </div>
+</div>
 
 <!-- Marketing messaging and featurettes
 ================================================== -->
