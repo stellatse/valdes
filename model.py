@@ -14,12 +14,12 @@ Base = declarative_base()
 class User(Base):
 	__tablename__ = 'users'
 	id = Column(Integer, primary_key=True)
-	name = Column(String)
-	fullname = Column(String)
-	password = Column(String, nullable = False)
-	email = Column(String, nullable = False)
-	phone = Column(String, nullable = False)
-	address = Column(String)
+	name = Column(String, length=30)
+	fullname = Column(String, length=50)
+	password = Column(String, length=32, nullable = False)
+	email = Column(String, length=50, nullable = False)
+	phone = Column(String, length=15, nullable = False)
+	address = Column(String, length=300)
 	section = Column(Integer)
 	reg_time = Column(DateTime)
 	user_type = Column(Integer)
@@ -43,7 +43,7 @@ class Order(Base):
 	id = Column(Integer, primary_key=True)
 	user = Column(Integer, ForeignKey("users.id"))
 	order_time = Column(DateTime)
-	address = Column(String)
+	address = Column(String, length=300)
 	accept = Column(Boolean)
 	picked = Column(Boolean)
 	def __init__(self, user, address):
@@ -60,7 +60,7 @@ class Logger(Base):
 	id = Column(Integer, primary_key=True)
 	action = Column(Integer)
 	user = Column(Integer, ForeignKey("users.id"))
-	description = Column(Text)
+	description = Column(Text, length=500)
 	
 logger_table = Logger.__table__
 metadata = Base.metadata
