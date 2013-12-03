@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*-
 import web
 import json
+from sqlalchemy.orm import scoped_session, sessionmaker
+from models import *
 render = web.template.render('templates/', base='layout')
 render_plain = web.template.render('templates/')
 urls = (
@@ -29,7 +31,7 @@ class signup:
 			i = web.input()
 			user_id = model.User().new(i.phone, i.email, i.password)
 		except Exception, e:
-			return json.dumps(["邮箱或手机号码已存在，请重新注册"])
+			return json.dumps(["reg_error"])
 		else:
 			if user_id:
 				web.setcookie('user_id', str(user_id), settings.COOKIE_EXPIRES)
@@ -39,7 +41,21 @@ class login:
 	def GET(self):
 		return render.login()
 
+
+def load_sqla(handler):
+	web.ctx.orm = scoped_session(sessionmaker(bind=engine))
+	try:
+		return handler()
+	except web.HTTPError:
+		web.ctx.orm.commit()
+		raise
+	except:
+		web.ctx.orm.rollback()
+		raise
+	finally:
+		web.ctx.orm.commit()
 		
 if __name__ == "__main__":
 	app = web.application(urls, globals())
+	app.add_processor(load_sqla)
 	app.run()
