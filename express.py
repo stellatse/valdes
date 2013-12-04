@@ -58,7 +58,7 @@ class login:
 
 class account:
     def GET(self):
-        return render.login()
+        return render.account()
 		
 if __name__ == "__main__":
     app.run()
