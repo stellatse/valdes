@@ -1,23 +1,11 @@
-$(document).ready(function(){
-
-$("#register").validate({
-    rules:{
-    phone:"required",
-    email:{
-    required:true,
-    email: true
-    },
-    password:{
-    required:true,
-    minlength: 8
-    },
-    password_again:{
-    required:true,
-    equalTo: "#password"
-    }
-    },
-
-    errorClass: "help-inline"
-
-});
-});
+function reg(){
+    $.ajax({
+           type: "POST",
+           url: "/signup",
+           data: $("#register").serialize(), // serializes the form's elements.
+           success: function(data)
+           {
+               alert(data); // show response from the php script.
+           }
+         });
+}

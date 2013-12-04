@@ -2,7 +2,19 @@ body {
 	padding-top: 60px;
 	padding-bottom: 40px;
 }
-
+#register {
+max-width: 500px;
+padding: 19px 29px 29px;
+margin: 0 auto 20px;
+background-color: #fff;
+border: 1px solid #e5e5e5;
+-webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+		border-radius: 5px;
+-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+   -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+		box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
 .form-signin {
 max-width: 300px;
 padding: 19px 29px 29px;
@@ -27,17 +39,17 @@ height: auto;
 margin-bottom: 15px;
 padding: 7px 9px;
 }
-    /* MARKETING CONTENT
-    -------------------------------------------------- */
+/* MARKETING CONTENT
+-------------------------------------------------- */
 
-    /* Center align the text within the three columns below the carousel */
-    .marketing .span4 {
-      text-align: center;
-    }
-    .marketing h2 {
-      font-weight: normal;
-    }
-    .marketing .span4 p {
-      margin-left: 10px;
-      margin-right: 10px;
-    }
+/* Center align the text within the three columns below the carousel */
+.marketing .span4 {
+  text-align: center;
+}
+.marketing h2 {
+  font-weight: normal;
+}
+.marketing .span4 p {
+  margin-left: 10px;
+  margin-right: 10px;
+}
