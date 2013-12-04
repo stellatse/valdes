@@ -33,8 +33,12 @@ app.add_processor(load_sqla)
 
 class index:
     def GET(self):
+        if session.loggedin == True:
+            auth = True
+        else:
+            auth = False
         content = "test"
-        return render.index()
+        return render.index(auth)
 
 class signup:
     def GET(self):

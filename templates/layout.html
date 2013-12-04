@@ -1,4 +1,4 @@
-$def with (content)
+$def with (content, auth)
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,11 +38,14 @@ $def with (content)
                 </ul>
               </li>
             </ul>
-            <form class="navbar-form pull-right" action="/login" method="post">
-              <input class="span2" name="phone" type="text" placeholder="电话">
-              <input class="span2" name="email" type="password" placeholder="密码">
-              <button type="submit" class="btn">登录</button>
-            </form>
+            $if auth == False:
+                <form class="navbar-form pull-right" action="/login" method="post">
+                  <input class="span2" name="phone" type="text" placeholder="电话">
+                  <input class="span2" name="email" type="password" placeholder="密码">
+                  <button type="submit" class="btn">登录</button>
+                </form>
+            $else:
+            	<li><a href="/">Welcome</a></li>
           </div><!--/.nav-collapse -->
         </div>
       </div>
