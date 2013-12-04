@@ -54,7 +54,9 @@ class signup:
             if u.id:
                 web.setcookie('uid', str(u.id), settings.COOKIE_EXPIRES)
                 raise web.seeother('/user/%d' % u.id)
-	
+            else:
+                uid = 1
+                return web.seeother('/user/%d' % uid)
 class login:
     def GET(self):
         return render.login()
