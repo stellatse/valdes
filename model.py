@@ -34,7 +34,7 @@ class User(Base):
         self.section = section
         self.reg_time = dt.now()
     def __repr__(self):
-        return "<User('%s','%s', '%s', '%s', '%s', '%s')>" % (self.name, self.fullname, self.email, self.password, self.phone, self.address)
+        return "<User('%s','%s','%s', '%s', '%s', '%s', '%s')>" % (self.id, self.name, self.fullname, self.email, self.password, self.phone, self.address)
 
 users_table = User.__table__
 

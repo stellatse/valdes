@@ -14,7 +14,7 @@ urls = (
     '/contact', 'contact',
     '/service', 'service',
     '/mioder', 'myorder',
-    '/user/(\d+)', 'account'
+    '/user', 'account'
 )
 def load_sqla(handler):
     web.ctx.orm = scoped_session(sessionmaker(bind=engine))
@@ -51,19 +51,13 @@ class signup:
         except Exception, e:
             return json.dumps(["reg_error"])
         else:
-            if u.id:
-                web.setcookie('uid', str(u.id), settings.COOKIE_EXPIRES)
-                raise web.seeother('/user/%d' % u.id)
-            else:
-                uid = 1
-                return web.seeother('/user/%d' % uid)
+            return web.seeother('/user')
 class login:
     def GET(self):
         return render.login()
 
 class account:
-    def GET(self, user_id):
-        print user_id
+    def GET(self):
         return render.login()
 		
 if __name__ == "__main__":
