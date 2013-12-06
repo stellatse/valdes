@@ -4,7 +4,7 @@ import web
 import json
 from sqlalchemy.orm import scoped_session, sessionmaker
 from model import *
-
+web.config.debug = False
 urls = (
     '/', 'index',
     '/signup', 'signup',
