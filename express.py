@@ -30,13 +30,13 @@ def load_sqla(handler):
         web.ctx.orm.commit()
 app = web.application(urls, globals())
 app.add_processor(load_sqla)
-
+session = web.session.Session(app, web.session.DiskStore('sessions'), initializer={'loggedin': False})
 class index:
     def GET(self):
-        if session.loggedin == True:
-            auth = True
-        else:
+        if session.get('logged_in', False):
             auth = False
+        else:
+            auth = True
         content = "test"
         return render.index(auth)
 
