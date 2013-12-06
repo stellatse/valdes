@@ -38,7 +38,7 @@ $def with (content)
                 </ul>
               </li>
             </ul>
-            $if context.get('logged_in', False):
+            $if context.get('login', False):
                 <form class="navbar-form pull-right" action="/login" method="post">
                   <input class="span2" name="phone" type="text" placeholder="电话">
                   <input class="span2" name="email" type="password" placeholder="密码">
