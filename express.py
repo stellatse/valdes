@@ -49,8 +49,6 @@ class signup:
         try:
             i = web.input()
             data = web.data()
-            print i
-            print data
             u = User(name='', fullname='', password=i.password, email=i.email, phone=i.phone, address='', section=0)
             web.ctx.orm.add(u)
         except Exception, e:
@@ -60,6 +58,15 @@ class signup:
 class login:
     def GET(self):
         return render.login()
+       
+    def POST(self):
+        i = web.input()
+        u = User.login(i.email, i.password)
+        if u:
+            session.login = True
+            return render.index()
+        else:
+            return json.dumps(["login_error"])
 
 class account:
     def GET(self):

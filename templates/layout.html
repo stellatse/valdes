@@ -40,8 +40,8 @@ $def with (content)
             </ul>
             $if context.get('login') == False:
                 <form class="navbar-form pull-right" action="/login" method="post">
-                  <input class="span2" name="phone" type="text" placeholder="电话">
-                  <input class="span2" name="email" type="password" placeholder="密码">
+                  <input class="span2" name="email" type="text" placeholder="登录邮箱">
+                  <input class="span2" name="password" type="password" placeholder="密码">
                   <button type="submit" class="btn">登录</button>
                 </form>
             $else:

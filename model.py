@@ -35,7 +35,12 @@ class User(Base):
         self.reg_time = dt.now()
     def __repr__(self):
         return "<User('%s','%s','%s', '%s', '%s', '%s', '%s')>" % (self.id, self.name, self.fullname, self.email, self.password, self.phone, self.address)
-
+        
+    def login(self, username, password):
+        pwdhash = hashlib.md5(password).hexdigest()
+        
+        
+        
 users_table = User.__table__
 
 class Order(Base):
