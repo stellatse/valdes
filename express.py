@@ -4,8 +4,7 @@ import web
 import json
 from sqlalchemy.orm import scoped_session, sessionmaker
 from model import *
-render = web.template.render('templates/', base='layout', globals={'context': session})
-render_plain = web.template.render('templates/')
+
 urls = (
     '/', 'index',
     '/signup', 'signup',
@@ -31,6 +30,8 @@ def load_sqla(handler):
 app = web.application(urls, globals())
 app.add_processor(load_sqla)
 session = web.session.Session(app, web.session.DiskStore('sessions'))
+render = web.template.render('templates/', base='layout', globals={'context': session})
+render_plain = web.template.render('templates/')
 class index:
     def GET(self):
         if session.get('logged_in', False):
