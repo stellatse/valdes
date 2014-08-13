@@ -1,49 +1,93 @@
-$var title: Express Today! ET速递
+$var title: Home
 
 <!-- Main hero unit for a primary marketing message or call to action -->
-<div class="hero-unit">
-<h1>E.T.速递 只为你服务</h1>
-<hr>
-<p>足不出户，帮你办到! 你有任何东西需要在今天买到或送到，请找ET</p>
-<p><a class="btn btn-primary btn-large" role="button" href="#signup" data-toggle="modal">立刻预定 &raquo;</a></p>
+<div id="myCarousel" class="carousel slide">
+<!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+      </ol>
+    <div class="carousel-inner">
+        <div class="item active">
+          <img src="/static/img/haedbanner.jpg" alt="First slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>SK 企业服务解决方案</h1>
+              <p>$slide_desc</p>
+              <p><a class="btn btn-primary btn-large" role="button" href="#signup" data-toggle="modal">Free Trial &raquo;</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img src="" alt="Second slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>SK 服务理念</h1>
+              <p>做你想做的，其他的都交给我们。</p>
+              <p>我们很轻，但是我们功能齐全。</p>
+
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
 </div>
+
 <div class="container marketing">
       <!-- Three columns of text below the carousel -->
       <div class="row">
-        <div class="span4">
-          <img class="img-circle" src="/static/img/head1.jpg">
-          <h2>2小时必达</h2>
-          <p>还在苦苦等待公交车吗？</p>
-          <p>还在拼命挤地铁吗？</p>
-          <p>还在为堵的要命的马路憋尿吗？</p>
-          <p><a class="btn" href="#">别再等了！ &raquo;</a></p>
+        <div class="col-md-4">
+          <img class="img-rounded" src="/static/img/shop.png">
+          <h2>Stock Management</h2>
+          <p>Stock location</p>
+          <p>Sales manage</p>
+          <p>Business values</p>
+          <p><a class="btn" href="#">Try &raquo;</a></p>
         </div><!-- /.span4 -->
-        <div class="span4">
-          <img class="img-circle" src="/static/img/head2.jpg">
-          <h2>专属定制</h2>
-          <p>客户要一份文件必须马上送到？ET 2个小时内帮你送到</p>
-          <p>老婆生日忘了？ ET马上帮你搞定今晚的晚餐和礼物</p>
-          <p>手机没电充电器没带？ET马上帮你送一个充电宝</p>
-          <p><a class="btn" href="#">别再等了！ &raquo;</a></p>
+        <div class="col-md-4">
+          <img class="img-rounded" src="/static/img/computer.png">
+          <h2>IT Service</h2>
+          <p>Service Portal</p>
+          <p>Knowledge library</p>
+          <p>Incident manage</p>
+          <p><a class="btn" href="#">Try！ &raquo;</a></p>
         </div><!-- /.span4 -->
-        <div class="span4">
-          <img class="img-circle" src="/static/img/head3.jpg">
-          <h2>立足上海</h2>
-          <p>浦东？浦西？都可以！</p>
-          <p>中环内1个小时</p>
-          <p>外环内2个小时</p>
-          <p><a class="btn" href="#">别再等了！ &raquo;</a></p>
+        <div class="col-md-4">
+          <img class="img-rounded" src="/static/img/user.png">
+          <h2>HR Mangement</h2>
+          <p>员工请假管理</p>
+          <p>HR service</p>
+          <p></p>
+          <p><a class="btn" href="#">Try！ &raquo;</a></p>
         </div><!-- /.span4 -->
       </div><!-- /.row -->
 
 </div>
 
-<div id="signup" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="myModalLabel">一分钟注册</h3>
-  </div>
-  <div class="modal-body">
+<div id="stock" class="carousel">
+    <div class="carousel-inner">
+        <div class="item active">
+          <!--<img src="/static/img/home-hero.jpg">-->
+          <div class="container">
+              <h1>SK 存货管理</h1>
+              <h2>库存管理的领先解决方案</h2>
+              <p><a class="btn btn-primary btn-large" role="button" href="#signup" data-toggle="modal">免费试用 &raquo;</a></p>
+          </div>
+        </div>
+
+      </div>
+</div>
+
+<div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Free Trial now!</h4>
+      </div>
+      <div class="modal-body">
         <form id="register" class="form-horizontal" action="/signup" method="POST">
         <div class="control-group">
         	<label class="control-label" for="inputEmail">Email</label>
@@ -57,29 +101,25 @@ $var title: Express Today! ET速递
     		<input type="text" id="phone" name="phone" class="input-block-level" placeholder="手机">
             </div>
         </div>
-        <div class="control-group">
-        	<label class="control-label" for="inputPassword">密码</label>
-            <div class="controls">
-    		<input type="password" id="password" name="password" class="input-block-level" placeholder="Password">
-            </div>
-        </div>
-        <div class="control-group">
-        	<label class="control-label" for="inputPassword">确认密码</label>
-            <div class="controls">
-    		<input type="password" id="password_again" name="password_again" class="input-block-level" placeholder="Password Again">
-            </div>
-        </div>
+        <!--<div class="control-group">-->
+        	<!--<label class="control-label" for="inputPassword">密码</label>-->
+            <!--<div class="controls">-->
+    		<!--<input type="password" id="password" name="password" class="input-block-level" placeholder="Password">-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="control-group">-->
+        	<!--<label class="control-label" for="inputPassword">确认密码</label>-->
+            <!--<div class="controls">-->
+    		<!--<input type="password" id="password_again" name="password_again" class="input-block-level" placeholder="Password Again">-->
+            <!--</div>-->
+        <!--</div>-->
         <div class="control-group">
         	<div class="controls">
-        	<button onclick="reg();" type="submit" class="btn btn-primary">注册</button>
+        	<button onclick="reg();" type="submit" class="btn btn-primary">免费试用</button>
             </div>
         </div>
         </form>
+      </div>
+    </div>
   </div>
-
-  
 </div>
-
-
-
-

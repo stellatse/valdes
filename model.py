@@ -7,7 +7,8 @@ from datetime import datetime as dt
 from sqlalchemy import create_engine
 from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, Boolean, Text
 
-engine = create_engine('mysql+mysqldb://root:tingfeng@localhost/express', echo=True)
+#engine = create_engine('mysql+mysqldb://root:tingfeng@localhost/express', echo=True)
+engine = create_engine('sqlite:///oaksu.db')
 #db = web.database(dbn='mysql', db='express', user=settings.MYSQL_USERNAME, pw=settings.MYSQL_PASSWORD)
 from sqlalchemy.ext.declarative import declarative_base
 Base = declarative_base()

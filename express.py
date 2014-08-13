@@ -4,6 +4,7 @@ import web
 import json
 from sqlalchemy.orm import scoped_session, sessionmaker
 from model import *
+
 web.config.debug = False
 urls = (
     '/', 'index',
@@ -15,6 +16,8 @@ urls = (
     '/mioder', 'myorder',
     '/user', 'account'
 )
+
+
 def load_sqla(handler):
     web.ctx.orm = scoped_session(sessionmaker(bind=engine))
     try:
@@ -27,11 +30,17 @@ def load_sqla(handler):
         raise
     finally:
         web.ctx.orm.commit()
+
+
 app = web.application(urls, globals())
 app.add_processor(load_sqla)
 session = web.session.Session(app, web.session.DiskStore('sessions'))
-render = web.template.render('templates/', base='layout', globals={'context': session})
+params = {'context': session}
+global_vars = dict(settings.GLOBAL_PARAMS.items() + params.items())
+render = web.template.render('templates/', base='layout', globals=global_vars)
 render_plain = web.template.render('templates/')
+
+
 class index:
     def GET(self):
         if session.get('logged_in', False):
@@ -41,10 +50,11 @@ class index:
         content = "test"
         return render.index()
 
+
 class signup:
     def GET(self):
         return render.signup()
-		
+
     def POST(self):
         try:
             i = web.input()
@@ -55,10 +65,12 @@ class signup:
             return json.dumps(["reg_error"])
         else:
             return web.seeother('/user')
+
+
 class login:
     def GET(self):
         return render.login()
-       
+
     def POST(self):
         i = web.input()
         u = User.login(i.email, i.password)
@@ -68,9 +80,11 @@ class login:
         else:
             return json.dumps(["login_error"])
 
+
 class account:
     def GET(self):
         return render.account()
-		
+
+
 if __name__ == "__main__":
     app.run()
